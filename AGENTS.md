@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep the original expense tracker in `public/app/` and embed it at `/` through the TanStack route; this preserves its local browser data and standalone install path.
+- Store user-supplied animal images as CDN asset pointers in `src/assets/animals/` and reference their URLs in the standalone app; this avoids committing uploaded binaries.

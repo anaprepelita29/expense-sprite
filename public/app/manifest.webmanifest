@@ -1,7 +1,7 @@
 {
-  "name": "Cheltuielile mele",
-  "short_name": "Cheltuieli",
-  "description": "Urmărește-ți cheltuielile zilnice, bugetele și obiectivele într-un mod vesel și colorat.",
+  "name": "My Expenses",
+  "short_name": "Expenses",
+  "description": "Track your daily expenses, budgets and goals in a playful, colorful way.",
   "start_url": "/app/index.html",
   "scope": "/app/",
   "display": "standalone",

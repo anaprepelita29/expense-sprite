@@ -54,11 +54,11 @@ function detectCategory(description) {
   const text = description.toLowerCase();
 
   const categoryMap = [
-    { keywords: ["profi", "lidl", "kaufland", "penny", "mega image", "carrefour", "selgros"], category: "Mâncare" },
+    { keywords: ["profi", "lidl", "kaufland", "penny", "mega image", "carrefour", "selgros"], category: "Food" },
     { keywords: ["petrol", "shell", "rompetrol", "omv", "lukoil", "benzina", "motorina"], category: "Transport" },
-    { keywords: ["electric", "eon", "digiservice", "vodafone", "orange", "telefon", "internet", "net", "apn", "lte"], category: "Facturi" },
-    { keywords: ["netflix", "spotify", "cinema", "movie", "playstation", "steam", "youtube", "hbo"], category: "Divertisment" },
-    { keywords: ["medic", "farmacie", "pharmacy", "clinic", "doctor"], category: "Altele" }
+    { keywords: ["electric", "eon", "digiservice", "vodafone", "orange", "telefon", "internet", "net", "apn", "lte"], category: "Bills" },
+    { keywords: ["netflix", "spotify", "cinema", "movie", "playstation", "steam", "youtube", "hbo"], category: "Entertainment" },
+    { keywords: ["medic", "farmacie", "pharmacy", "clinic", "doctor"], category: "Other" }
   ];
 
   for (const item of categoryMap) {
@@ -67,7 +67,7 @@ function detectCategory(description) {
     }
   }
 
-  return "Altele";
+  return "Other";
 }
 
 function renderExpenses(expenses) {
@@ -88,20 +88,20 @@ function renderExpenses(expenses) {
     description.textContent = expense.description;
 
     const category = document.createElement("small");
-    category.textContent = expense.category;
+    category.textContent = ({ "Mâncare": "Food", "Facturi": "Bills", "Divertisment": "Entertainment", "Altele": "Other" })[expense.category] || expense.category;
 
     info.appendChild(description);
     info.appendChild(category);
 
     const amount = document.createElement("span");
-    amount.textContent = expense.amount + " lei";
+    amount.textContent = expense.amount + " RON";
 
     item.appendChild(info);
     item.appendChild(amount);
     expenseList.appendChild(item);
   });
 
-  totalElement.textContent = total + " lei";
+  totalElement.textContent = total + " RON";
 }
 
 function showApp(user) {
@@ -122,7 +122,7 @@ function renderCalendar() {
   const daysInMonth = lastDay.getDate();
   const prevMonthLastDay = new Date(year, month, 0).getDate();
 
-  calendarMonthLabel.textContent = new Intl.DateTimeFormat("ro-RO", {
+  calendarMonthLabel.textContent = new Intl.DateTimeFormat("en-US", {
     month: "long",
     year: "numeric",
   }).format(currentMonth);
@@ -191,7 +191,7 @@ registerForm.addEventListener("submit", (event) => {
   const password = document.getElementById("register-password").value.trim();
 
   if (!name || !email || !password) {
-    alert("Completează toate câmpurile.");
+    alert("Please fill in all fields.");
     return;
   }
 
@@ -199,7 +199,7 @@ registerForm.addEventListener("submit", (event) => {
   const userExists = users.some((user) => user.email === email);
 
   if (userExists) {
-    alert("Există deja un cont cu acest email.");
+    alert("An account with this email already exists.");
     return;
   }
 
@@ -211,7 +211,7 @@ registerForm.addEventListener("submit", (event) => {
   });
 
   saveUsers(users);
-  alert("Înregistrarea a fost realizată cu succes!");
+  alert("Account created successfully!");
   registerForm.reset();
   setActiveTab("login-form");
 });
@@ -226,7 +226,7 @@ loginForm.addEventListener("submit", (event) => {
   const user = users.find((u) => u.email === email && u.password === password);
 
   if (!user) {
-    alert("Email sau parolă incorecte.");
+    alert("Incorrect email or password.");
     return;
   }
 
@@ -245,7 +245,7 @@ expenseForm.addEventListener("submit", (event) => {
   let category = document.getElementById("category").value;
 
   if (!description || !amount) {
-    alert("Completează toate câmpurile.");
+    alert("Please fill in all fields.");
     return;
   }
 

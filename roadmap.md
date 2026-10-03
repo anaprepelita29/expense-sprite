@@ -1,0 +1,3 @@
+- [x] Show the uploaded pixel animals falling slowly on the login screen.
+- [x] Translate all visible app text, messages, calendar, and app metadata into English.
+- [x] Verify the login and expense flow on mobile.

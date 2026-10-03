@@ -1,83 +1,44 @@
-/* "After Dawn" pastel pixel-desktop theme */
-
-/* ===== Pixel-art animals on the login screen ===== */
-.auth-screen { position: relative; overflow: hidden; }
-.pixel-animal {
-  position: absolute;
-  width: 5px; height: 5px;
-  z-index: 0;
-  image-rendering: pixelated;
-}
+/* Uploaded pixel animals drift down behind the login window. */
+.auth-screen { position: relative; overflow: hidden; isolation: isolate; }
+.animal-rain { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
 .auth-card { position: relative; z-index: 1; }
-
-/* Pink cat, hopping on the left */
-.px-cat {
-  left: 6%; bottom: 12%;
-  color: transparent;
-  animation: hop 1.6s ease-in-out infinite;
-  box-shadow:
-    5px 0 #6b4a6e, 40px 0 #6b4a6e,
-    5px 5px #6b4a6e, 10px 5px #6b4a6e, 35px 5px #6b4a6e, 40px 5px #6b4a6e,
-    5px 10px #6b4a6e, 10px 10px #f4a9c6, 15px 10px #f4a9c6, 20px 10px #f4a9c6, 25px 10px #f4a9c6, 30px 10px #f4a9c6, 35px 10px #f4a9c6, 40px 10px #6b4a6e,
-    5px 15px #6b4a6e, 10px 15px #f4a9c6, 15px 15px #fff, 20px 15px #f4a9c6, 25px 15px #f4a9c6, 30px 15px #fff, 35px 15px #f4a9c6, 40px 15px #6b4a6e,
-    5px 20px #6b4a6e, 10px 20px #f4a9c6, 15px 20px #f4a9c6, 20px 20px #f4a9c6, 25px 20px #f4a9c6, 30px 20px #f4a9c6, 35px 20px #f4a9c6, 40px 20px #6b4a6e,
-    5px 25px #6b4a6e, 10px 25px #f4a9c6, 15px 25px #6b4a6e, 20px 25px #f4a9c6, 25px 25px #f4a9c6, 30px 25px #6b4a6e, 35px 25px #f4a9c6, 40px 25px #6b4a6e,
-    10px 30px #6b4a6e, 15px 30px #f4a9c6, 20px 30px #f4a9c6, 25px 30px #f4a9c6, 30px 30px #f4a9c6, 35px 30px #6b4a6e,
-    10px 35px #6b4a6e, 15px 35px #6b4a6e, 20px 35px #6b4a6e, 25px 35px #6b4a6e, 30px 35px #6b4a6e, 35px 35px #6b4a6e;
+.falling-animal {
+  position: absolute;
+  top: 0;
+  left: var(--fall-left);
+  width: clamp(48px, 12vw, 86px);
+  height: auto;
+  image-rendering: pixelated;
+  animation: animal-fall var(--fall-time) linear var(--fall-delay) infinite;
+  will-change: transform;
 }
-
-/* Lilac bunny, bobbing on the right */
-.px-bunny {
-  right: 6%; top: 10%;
-  color: transparent;
-  animation: bunny-bob 2.2s ease-in-out infinite;
-  box-shadow:
-    10px 0 #6b4a6e, 25px 0 #6b4a6e,
-    10px 5px #6b4a6e, 25px 5px #6b4a6e,
-    10px 10px #6b4a6e, 25px 10px #6b4a6e,
-    5px 15px #6b4a6e, 10px 15px #d9b8e6, 15px 15px #d9b8e6, 20px 15px #d9b8e6, 25px 15px #d9b8e6, 30px 15px #6b4a6e,
-    5px 20px #6b4a6e, 10px 20px #fff, 15px 20px #d9b8e6, 20px 20px #d9b8e6, 25px 20px #fff, 30px 20px #6b4a6e,
-    5px 25px #6b4a6e, 10px 25px #d9b8e6, 15px 25px #d9b8e6, 20px 25px #d9b8e6, 25px 25px #d9b8e6, 30px 25px #6b4a6e,
-    5px 30px #6b4a6e, 10px 30px #d9b8e6, 15px 30px #f4a9c6, 20px 30px #f4a9c6, 25px 30px #d9b8e6, 30px 30px #6b4a6e,
-    5px 35px #6b4a6e, 10px 35px #d9b8e6, 15px 35px #d9b8e6, 20px 35px #d9b8e6, 25px 35px #d9b8e6, 30px 35px #6b4a6e,
-    10px 40px #6b4a6e, 15px 40px #d9b8e6, 20px 40px #d9b8e6, 25px 40px #6b4a6e,
-    10px 45px #6b4a6e, 15px 45px #6b4a6e, 20px 45px #6b4a6e, 25px 45px #6b4a6e;
-}
-
-/* Peach chick, wiggling at the bottom right */
-.px-chick {
-  right: 12%; bottom: 8%;
-  color: transparent;
-  animation: wiggle 1.2s ease-in-out infinite;
-  box-shadow:
-    15px 0 #6b4a6e, 20px 0 #6b4a6e,
-    10px 5px #6b4a6e, 15px 5px #ffd9c0, 20px 5px #ffd9c0, 25px 5px #6b4a6e,
-    5px 10px #6b4a6e, 10px 10px #ffd9c0, 15px 10px #fff, 20px 10px #ffd9c0, 25px 10px #ffd9c0, 30px 10px #6b4a6e,
-    5px 15px #6b4a6e, 10px 15px #ffd9c0, 15px 15px #ffd9c0, 20px 15px #ff9e6b, 25px 15px #ffd9c0, 30px 15px #6b4a6e,
-    5px 20px #6b4a6e, 10px 20px #ffd9c0, 15px 20px #ffd9c0, 20px 20px #ffd9c0, 25px 20px #ffd9c0, 30px 20px #6b4a6e,
-    10px 25px #6b4a6e, 15px 25px #ffd9c0, 20px 25px #ffd9c0, 25px 25px #6b4a6e,
-    15px 30px #6b4a6e, 20px 30px #6b4a6e,
-    15px 35px #ff9e6b, 20px 35px #ff9e6b;
-}
-
-@keyframes hop {
-  0%, 100% { transform: translateY(0); }
-  30% { transform: translateY(-18px); }
-  50% { transform: translateY(0); }
-  60% { transform: translateY(-6px); }
-}
-@keyframes bunny-bob {
-  0%, 100% { transform: translateY(0) rotate(-2deg); }
-  50% { transform: translateY(-10px) rotate(2deg); }
-}
-@keyframes wiggle {
-  0%, 100% { transform: rotate(-6deg); }
-  50% { transform: rotate(6deg); }
+.animal-1 { --fall-left: 3%; --fall-time: 22s; --fall-delay: -9s; }
+.animal-2 { --fall-left: 17%; --fall-time: 19s; --fall-delay: -16s; }
+.animal-3 { --fall-left: 30%; --fall-time: 25s; --fall-delay: -5s; }
+.animal-4 { --fall-left: 43%; --fall-time: 21s; --fall-delay: -18s; }
+.animal-5 { --fall-left: 57%; --fall-time: 24s; --fall-delay: -11s; }
+.animal-6 { --fall-left: 72%; --fall-time: 20s; --fall-delay: -4s; }
+.animal-7 { --fall-left: 84%; --fall-time: 23s; --fall-delay: -15s; }
+.animal-8 { --fall-left: 9%; --fall-time: 26s; --fall-delay: -21s; }
+.animal-9 { --fall-left: 64%; --fall-time: 18s; --fall-delay: -8s; }
+.animal-10 { --fall-left: 88%; --fall-time: 27s; --fall-delay: -23s; }
+@keyframes animal-fall {
+  from { transform: translate3d(0, -110px, 0) rotate(-8deg); }
+  50% { transform: translate3d(16px, 50vh, 0) rotate(8deg); }
+  to { transform: translate3d(-8px, calc(100vh + 120px), 0) rotate(-8deg); }
 }
 @media (max-width: 520px) {
-  .px-cat { left: 4%; bottom: 6%; }
-  .px-bunny { right: 16%; top: 5%; }
-  .px-chick { right: 18%; bottom: 4%; }
+  .falling-animal { width: clamp(43px, 14vw, 62px); }
+  .animal-1 { --fall-left: 2%; }
+  .animal-2 { --fall-left: 19%; }
+  .animal-3 { --fall-left: 40%; }
+  .animal-4 { --fall-left: 64%; }
+  .animal-5 { --fall-left: 82%; }
+  .animal-6 { --fall-left: 7%; }
+  .animal-7 { --fall-left: 77%; }
+  .animal-8 { --fall-left: 29%; }
+  .animal-9 { --fall-left: 59%; }
+  .animal-10 { --fall-left: 88%; }
 }
 :root {
   --w-ink: #6b4a6e;
@@ -360,4 +321,4 @@ label { font-weight: 700; }
 @keyframes pop { 0% { transform: scale(.97) translateY(8px); opacity: 0; } 100% { transform: none; opacity: 1; } }
 @keyframes spin-in { from { transform: rotate(-90deg) scale(.8); } to { transform: none; } }
 
-@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } .falling-animal { transform: translateY(8vh); } }

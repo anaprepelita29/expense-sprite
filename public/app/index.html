@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -7,8 +7,8 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="Cheltuieli" />
-    <title>Cheltuielile mele</title>
+    <meta name="apple-mobile-web-app-title" content="My Expenses" />
+    <title>My Expenses</title>
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" type="image/png" href="icons/icon-192.png" />
     <link rel="apple-touch-icon" href="icons/icon-192.png" />
@@ -19,50 +19,59 @@
   </head>
   <body>
     <div class="auth-screen" id="auth-screen">
-      <div class="pixel-animal px-cat" aria-hidden="true"></div>
-      <div class="pixel-animal px-bunny" aria-hidden="true"></div>
-      <div class="pixel-animal px-chick" aria-hidden="true"></div>
+      <div class="animal-rain" aria-hidden="true">
+        <img class="falling-animal animal-1" src="/__l5e/assets-v1/389b129e-ee2e-4771-a34a-98631802bce0/cat.png" alt="" draggable="false" />
+        <img class="falling-animal animal-2" src="/__l5e/assets-v1/a161002d-a588-4e88-b269-0dcb33935e90/chick.png" alt="" draggable="false" />
+        <img class="falling-animal animal-3" src="/__l5e/assets-v1/e0152160-1230-46d3-9046-e69d6ae6d4a9/frog.png" alt="" draggable="false" />
+        <img class="falling-animal animal-4" src="/__l5e/assets-v1/cd647841-1ba3-4c01-8b3b-2f2c291a4330/hamster.png" alt="" draggable="false" />
+        <img class="falling-animal animal-5" src="/__l5e/assets-v1/09cc8428-eb60-443e-be2c-6d82d120a70e/penguin.png" alt="" draggable="false" />
+        <img class="falling-animal animal-6" src="/__l5e/assets-v1/11adb1e6-b98f-4d42-9802-aa2ee193e80b/sheep.png" alt="" draggable="false" />
+        <img class="falling-animal animal-7" src="/__l5e/assets-v1/657c783d-17c8-4cbf-a711-a840b4f07ef4/duck.png" alt="" draggable="false" />
+        <img class="falling-animal animal-8" src="/__l5e/assets-v1/3e8bff10-ebf6-478f-bc86-741eaaee790c/goose.png" alt="" draggable="false" />
+        <img class="falling-animal animal-9" src="/__l5e/assets-v1/55e14d28-f64f-439e-86fb-7895a4c153e0/fox.png" alt="" draggable="false" />
+        <img class="falling-animal animal-10" src="/__l5e/assets-v1/94cbbdea-366e-411f-ba8c-e20c00fc223a/bunny.png" alt="" draggable="false" />
+      </div>
       <div class="auth-card">
         <div class="auth-toggle">
-          <button class="tab-button active" type="button" data-target="login-form">Logare</button>
-          <button class="tab-button" type="button" data-target="register-form">Înregistrare</button>
+          <button class="tab-button active" type="button" data-target="login-form">Log in</button>
+          <button class="tab-button" type="button" data-target="register-form">Sign up</button>
         </div>
 
         <form id="login-form" class="auth-form active">
-          <h2>Intră în cont</h2>
+          <h2>Welcome back</h2>
 
           <div class="field-group">
             <label for="login-email">Email</label>
-            <input id="login-email" type="email" placeholder="ex: ion@email.com" required />
+            <input id="login-email" type="email" placeholder="e.g. alex@email.com" required />
           </div>
 
           <div class="field-group">
-            <label for="login-password">Parolă</label>
-            <input id="login-password" type="password" placeholder="Introdu parola" required />
+            <label for="login-password">Password</label>
+            <input id="login-password" type="password" placeholder="Enter your password" required />
           </div>
 
-          <button type="submit" class="primary-button">Loghează-te</button>
+          <button type="submit" class="primary-button">Log in</button>
         </form>
 
         <form id="register-form" class="auth-form">
-          <h2>Crează un cont</h2>
+          <h2>Create an account</h2>
 
           <div class="field-group">
-            <label for="register-name">Nume</label>
-            <input id="register-name" type="text" placeholder="Ex: Ana" required />
+            <label for="register-name">Name</label>
+            <input id="register-name" type="text" placeholder="e.g. Alex" required />
           </div>
 
           <div class="field-group">
             <label for="register-email">Email</label>
-            <input id="register-email" type="email" placeholder="Ex: ana@email.com" required />
+            <input id="register-email" type="email" placeholder="e.g. alex@email.com" required />
           </div>
 
           <div class="field-group">
-            <label for="register-password">Parolă</label>
-            <input id="register-password" type="password" placeholder="Alege o parolă" required />
+            <label for="register-password">Password</label>
+            <input id="register-password" type="password" placeholder="Choose a password" required />
           </div>
 
-          <button type="submit" class="primary-button">Înregistrează-te</button>
+          <button type="submit" class="primary-button">Sign up</button>
         </form>
       </div>
     </div>
@@ -71,13 +80,13 @@
       <div class="dashboard-shell">
         <header class="topbar">
           <div>
-            <p class="welcome-text">Bună, <span id="user-name">Utilizator</span>!</p>
-            <h1>Cheltuielile mele</h1>
+            <p class="welcome-text">Hello, <span id="user-name">User</span>!</p>
+            <h1>My Expenses</h1>
           </div>
-          <button id="logout-button" type="button" class="secondary-button">Deconectare</button>
+          <button id="logout-button" type="button" class="secondary-button">Log out</button>
         </header>
 
-        <nav class="view-tabs" aria-label="Navigare pagini">
+        <nav class="view-tabs" aria-label="Page navigation">
           <button class="view-tab active" data-view="home" type="button">Home</button>
           <button class="view-tab" data-view="report" type="button">Financial Report</button>
           <button class="view-tab" data-view="goals" type="button">Goals &amp; Budget</button>
@@ -176,24 +185,24 @@
 
                 <form id="expense-form" class="tracker-form">
                   <div class="field-group compact">
-                    <label for="description">Loc / achiziție</label>
-                    <input id="description" type="text" placeholder="Ex: Profi, Shell, Netflix" required />
+                    <label for="description">Place / purchase</label>
+                    <input id="description" type="text" placeholder="e.g. Grocery store, Shell, Netflix" required />
                   </div>
 
                   <div class="field-group compact">
                     <label for="amount">Amount</label>
-                    <input id="amount" type="number" min="1" placeholder="Ex: 120" required />
+                    <input id="amount" type="number" min="1" placeholder="e.g. 120" required />
                   </div>
 
                   <div class="field-group compact">
                     <label for="category">Category</label>
                     <select id="category" required>
                       <option value="auto">Auto</option>
-                      <option value="Mâncare">Mâncare</option>
+                      <option value="Food">Food</option>
                       <option value="Transport">Transport</option>
-                      <option value="Facturi">Facturi</option>
-                      <option value="Divertisment">Divertisment</option>
-                      <option value="Altele">Altele</option>
+                      <option value="Bills">Bills</option>
+                      <option value="Entertainment">Entertainment</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
 
@@ -204,7 +213,7 @@
 
                 <div class="total-banner">
                   <span>Total spent</span>
-                  <strong id="total">0 lei</strong>
+                  <strong id="total">0 RON</strong>
                 </div>
               </section>
 
@@ -245,18 +254,18 @@
                 <div class="calendar-box">
                   <div class="calendar-header">
                     <button id="prev-month" type="button" aria-label="Previous month" class="calendar-nav">‹</button>
-                    <strong id="calendar-month-label">Octombrie 2026</strong>
+                    <strong id="calendar-month-label">October 2026</strong>
                     <button id="next-month" type="button" aria-label="Next month" class="calendar-nav">›</button>
                   </div>
 
                   <div class="calendar-weekdays">
-                    <span>L</span>
-                    <span>Ma</span>
-                    <span>Mi</span>
-                    <span>J</span>
-                    <span>V</span>
-                    <span>S</span>
-                    <span>D</span>
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                    <span>Sun</span>
                   </div>
 
                   <div id="calendar-dates" class="calendar-dates"></div>
@@ -284,11 +293,11 @@
                   </div>
 
                   <ul class="legend">
-                    <li><span class="dot color-1"></span>Mâncare</li>
+                    <li><span class="dot color-1"></span>Food</li>
                     <li><span class="dot color-2"></span>Transport</li>
-                    <li><span class="dot color-3"></span>Facturi</li>
-                    <li><span class="dot color-4"></span>Divertisment</li>
-                    <li><span class="dot color-5"></span>Altele</li>
+                    <li><span class="dot color-3"></span>Bills</li>
+                    <li><span class="dot color-4"></span>Entertainment</li>
+                    <li><span class="dot color-5"></span>Other</li>
                   </ul>
                 </div>
               </section>
