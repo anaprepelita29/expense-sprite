@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cheltuielile mele</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Gaegu:wght@700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="whimsy.css" />
+  </head>
+  <body>
+    <div class="auth-screen" id="auth-screen">
+      <div class="auth-card">
+        <div class="auth-toggle">
+          <button class="tab-button active" type="button" data-target="login-form">Logare</button>
+          <button class="tab-button" type="button" data-target="register-form">Înregistrare</button>
+        </div>
+
+        <form id="login-form" class="auth-form active">
+          <h2>Intră în cont</h2>
+
+          <div class="field-group">
+            <label for="login-email">Email</label>
+            <input id="login-email" type="email" placeholder="ex: ion@email.com" required />
+          </div>
+
+          <div class="field-group">
+            <label for="login-password">Parolă</label>
+            <input id="login-password" type="password" placeholder="Introdu parola" required />
+          </div>
+
+          <button type="submit" class="primary-button">Loghează-te</button>
+        </form>
+
+        <form id="register-form" class="auth-form">
+          <h2>Crează un cont</h2>
+
+          <div class="field-group">
+            <label for="register-name">Nume</label>
+            <input id="register-name" type="text" placeholder="Ex: Ana" required />
+          </div>
+
+          <div class="field-group">
+            <label for="register-email">Email</label>
+            <input id="register-email" type="email" placeholder="Ex: ana@email.com" required />
+          </div>
+
+          <div class="field-group">
+            <label for="register-password">Parolă</label>
+            <input id="register-password" type="password" placeholder="Alege o parolă" required />
+          </div>
+
+          <button type="submit" class="primary-button">Înregistrează-te</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="app-screen hidden" id="app-screen">
+      <div class="dashboard-shell">
+        <header class="topbar">
+          <div>
+            <p class="welcome-text">Bună, <span id="user-name">Utilizator</span>!</p>
+            <h1>Cheltuielile mele</h1>
+          </div>
+          <button id="logout-button" type="button" class="secondary-button">Deconectare</button>
+        </header>
+
+        <nav class="view-tabs" aria-label="Navigare pagini">
+          <button class="view-tab active" data-view="home" type="button">Home</button>
+          <button class="view-tab" data-view="report" type="button">Financial Report</button>
+          <button class="view-tab" data-view="goals" type="button">Goals &amp; Budget</button>
+        </nav>
+
+        <main class="page-view active" data-view="home">
+          <div class="dashboard-grid">
+            <div class="dashboard-main">
+              <section class="panel income-panel">
+                <div class="panel-heading">
+                  <span class="icon-box">💳</span>
+                  <h3>Income</h3>
+                </div>
+
+                <div class="table rows">
+                  <div class="table-header">
+                    <span>Date</span>
+                    <span>Source</span>
+                    <span>Amount</span>
+                  </div>
+                  <div class="table-row">
+                    <span>12/09</span>
+                    <span>Salary</span>
+                    <span>3200</span>
+                  </div>
+                  <div class="table-row">
+                    <span>16/09</span>
+                    <span>Freelance</span>
+                    <span>640</span>
+                  </div>
+                  <div class="table-row total-row">
+                    <span>Total income</span>
+                    <span></span>
+                    <span>3840</span>
+                  </div>
+                </div>
+              </section>
+
+              <section class="panel variable-panel">
+                <div class="panel-heading">
+                  <span class="icon-box">🛒</span>
+                  <h3>Variable expenses</h3>
+                </div>
+
+                <div class="expense-grid">
+                  <div class="expense-row">
+                    <span>Groceries</span>
+                    <span>350</span>
+                    <span>320</span>
+                    <span>+30</span>
+                  </div>
+                  <div class="expense-row">
+                    <span>Food (Eat Out)</span>
+                    <span>180</span>
+                    <span>210</span>
+                    <span>-30</span>
+                  </div>
+                  <div class="expense-row">
+                    <span>Transportation</span>
+                    <span>120</span>
+                    <span>110</span>
+                    <span>+10</span>
+                  </div>
+                  <div class="expense-row">
+                    <span>Health / Medicine</span>
+                    <span>90</span>
+                    <span>80</span>
+                    <span>+10</span>
+                  </div>
+                  <div class="expense-row">
+                    <span>Children / Family</span>
+                    <span>160</span>
+                    <span>180</span>
+                    <span>-20</span>
+                  </div>
+                  <div class="expense-row">
+                    <span>Personal Care</span>
+                    <span>70</span>
+                    <span>65</span>
+                    <span>+5</span>
+                  </div>
+                  <div class="expense-row total-row">
+                    <span>Total variable expenses</span>
+                    <span></span>
+                    <span></span>
+                    <span>970</span>
+                  </div>
+                </div>
+              </section>
+
+              <section class="panel tracker-panel">
+                <div class="panel-heading">
+                  <span class="icon-box">📝</span>
+                  <h3>Spending tracker</h3>
+                </div>
+
+                <form id="expense-form" class="tracker-form">
+                  <div class="field-group compact">
+                    <label for="description">Loc / achiziție</label>
+                    <input id="description" type="text" placeholder="Ex: Profi, Shell, Netflix" required />
+                  </div>
+
+                  <div class="field-group compact">
+                    <label for="amount">Amount</label>
+                    <input id="amount" type="number" min="1" placeholder="Ex: 120" required />
+                  </div>
+
+                  <div class="field-group compact">
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                      <option value="auto">Auto</option>
+                      <option value="Mâncare">Mâncare</option>
+                      <option value="Transport">Transport</option>
+                      <option value="Facturi">Facturi</option>
+                      <option value="Divertisment">Divertisment</option>
+                      <option value="Altele">Altele</option>
+                    </select>
+                  </div>
+
+                  <button type="submit" class="primary-button">Add</button>
+                </form>
+
+                <ul id="expense-list" class="tracker-list"></ul>
+
+                <div class="total-banner">
+                  <span>Total spent</span>
+                  <strong id="total">0 lei</strong>
+                </div>
+              </section>
+
+              <section class="panel summary-panel">
+                <div class="panel-heading">
+                  <span class="icon-box">📊</span>
+                  <h3>Monthly summary</h3>
+                </div>
+
+                <div class="summary-grid">
+                  <div class="summary-item">
+                    <span>Total income</span>
+                    <strong>3840</strong>
+                  </div>
+                  <div class="summary-item">
+                    <span>Total expenses</span>
+                    <strong>1560</strong>
+                  </div>
+                  <div class="summary-item">
+                    <span>Total savings</span>
+                    <strong>2280</strong>
+                  </div>
+                  <div class="summary-item">
+                    <span>Balance</span>
+                    <strong>1340</strong>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <aside class="dashboard-side">
+              <section class="panel calendar-panel">
+                <div class="panel-heading compact-heading">
+                  <span class="icon-box">📅</span>
+                  <h3>Calendar</h3>
+                </div>
+
+                <div class="calendar-box">
+                  <div class="calendar-header">
+                    <button id="prev-month" type="button" aria-label="Previous month" class="calendar-nav">‹</button>
+                    <strong id="calendar-month-label">Octombrie 2026</strong>
+                    <button id="next-month" type="button" aria-label="Next month" class="calendar-nav">›</button>
+                  </div>
+
+                  <div class="calendar-weekdays">
+                    <span>L</span>
+                    <span>Ma</span>
+                    <span>Mi</span>
+                    <span>J</span>
+                    <span>V</span>
+                    <span>S</span>
+                    <span>D</span>
+                  </div>
+
+                  <div id="calendar-dates" class="calendar-dates"></div>
+                </div>
+              </section>
+
+              <section class="panel goals-panel">
+                <div class="panel-heading">
+                  <span class="icon-box">🎯</span>
+                  <h3>Monthly goals</h3>
+                </div>
+
+                <div class="goal-list">
+                  <label><input type="checkbox" /> Save at least</label>
+                  <label><input type="checkbox" /> Pay off debt</label>
+                  <label><input type="checkbox" /> Build emergency fund</label>
+                  <label><input type="checkbox" /> Other goals</label>
+                </div>
+
+                <div class="chart-card">
+                  <div class="expense-wheel" aria-label="Expense distribution chart">
+                    <div class="wheel-center">
+                      <span>Expenses</span>
+                    </div>
+                  </div>
+
+                  <ul class="legend">
+                    <li><span class="dot color-1"></span>Mâncare</li>
+                    <li><span class="dot color-2"></span>Transport</li>
+                    <li><span class="dot color-3"></span>Facturi</li>
+                    <li><span class="dot color-4"></span>Divertisment</li>
+                    <li><span class="dot color-5"></span>Altele</li>
+                  </ul>
+                </div>
+              </section>
+
+              <section class="panel fixed-panel">
+                <div class="panel-heading">
+                  <span class="icon-box">🏠</span>
+                  <h3>Fixed expenses</h3>
+                </div>
+
+                <div class="mini-table">
+                  <div class="mini-row"><span>Rent / House</span><span>1200</span><span>✓</span></div>
+                  <div class="mini-row"><span>Utilities</span><span>230</span><span>✓</span></div>
+                  <div class="mini-row"><span>Internet / Cable</span><span>80</span><span>✓</span></div>
+                  <div class="mini-row"><span>Phone</span><span>50</span><span>✓</span></div>
+                  <div class="mini-row"><span>Insurance</span><span>140</span><span>✓</span></div>
+                  <div class="mini-row"><span>Loan / Savings</span><span>160</span><span>✓</span></div>
+                  <div class="mini-row total-row"><span>Total fixed expenses</span><span>1860</span><span></span></div>
+                </div>
+              </section>
+            </aside>
+          </div>
+        </main>
+
+        <main class="page-view" data-view="report">
+          <section class="report-screen panel">
+            <div class="report-header">
+              <div>
+                <p class="small-label">Financial Report</p>
+                <h2>$3420</h2>
+              </div>
+            </div>
+
+            <div class="ring-wrap">
+              <div class="ring-chart">
+                <div class="ring-center">$5000</div>
+              </div>
+            </div>
+
+            <div class="report-toggle">
+              <button type="button" class="report-pill active">Weekly</button>
+              <button type="button" class="report-pill">Monthly</button>
+              <button type="button" class="report-pill">Quarterly</button>
+              <button type="button" class="report-pill">Yearly</button>
+            </div>
+
+            <div class="report-list">
+              <div class="report-item">
+                <div class="item-left">
+                  <span class="item-icon">📱</span>
+                  <div>
+                    <strong>Apple service subscription</strong>
+                    <small>App Store, Tinder, and 2+</small>
+                  </div>
+                </div>
+                <span class="negative">-$30.00</span>
+              </div>
+              <div class="report-item">
+                <div class="item-left">
+                  <span class="item-icon">🎵</span>
+                  <div>
+                    <strong>Spotify Family Plan</strong>
+                    <small>Spotify Monthly Subscription</small>
+                  </div>
+                </div>
+                <span class="negative">-$12.00</span>
+              </div>
+              <div class="report-item">
+                <div class="item-left">
+                  <span class="item-icon">☕</span>
+                  <div>
+                    <strong>Have a lunch with Mike</strong>
+                    <small>Bigmac, Chicken Wings</small>
+                  </div>
+                </div>
+                <span class="negative">-$30.00</span>
+              </div>
+              <div class="report-item">
+                <div class="item-left">
+                  <span class="item-icon">🛒</span>
+                  <div>
+                    <strong>Nasi Bebek Guling</strong>
+                    <small>Bebek Guling Surabaya</small>
+                  </div>
+                </div>
+                <span class="negative">-$5.00</span>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <main class="page-view" data-view="goals">
+          <section class="goals-screen panel">
+            <div class="goals-header">
+              <div>
+                <p class="small-label">Goals &amp; Budget</p>
+                <h2>My Goals</h2>
+              </div>
+              <button class="mini-add" type="button">+</button>
+            </div>
+
+            <div class="goal-card">
+              <div class="goal-row">
+                <span class="goal-icon">🏠</span>
+                <div class="goal-name-wrap">
+                  <strong>Investment</strong>
+                  <div class="goal-progress"><span style="width: 58%"></span></div>
+                </div>
+                <span class="goal-amount">$10,242</span>
+              </div>
+              <div class="goal-row">
+                <span class="goal-icon">🧯</span>
+                <div class="goal-name-wrap">
+                  <strong>Emergency Funds</strong>
+                  <div class="goal-progress"><span style="width: 42%"></span></div>
+                </div>
+                <span class="goal-amount">$3,520</span>
+              </div>
+              <div class="goal-row">
+                <span class="goal-icon">💰</span>
+                <div class="goal-name-wrap">
+                  <strong>Saved</strong>
+                  <div class="goal-progress"><span style="width: 76%"></span></div>
+                </div>
+                <span class="goal-amount">$3,520</span>
+              </div>
+            </div>
+
+            <div class="budget-section">
+              <div class="budget-header">
+                <h3>Budgeting</h3>
+                <button class="mini-add" type="button">+</button>
+              </div>
+
+              <div class="budget-item">
+                <div class="budget-info">
+                  <span class="budget-icon">☕</span>
+                  <span>Monthly Coffee</span>
+                </div>
+                <div class="budget-amounts">
+                  <strong>$100.00</strong>
+                  <small>$100.00</small>
+                </div>
+                <div class="budget-bar"><span style="width: 60%"></span></div>
+              </div>
+
+              <div class="budget-item">
+                <div class="budget-info">
+                  <span class="budget-icon">🚗</span>
+                  <span>Vehicle Fuel</span>
+                </div>
+                <div class="budget-amounts">
+                  <strong>$300.00</strong>
+                  <small>$300.00</small>
+                </div>
+                <div class="budget-bar"><span style="width: 45%"></span></div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
