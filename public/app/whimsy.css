@@ -75,9 +75,9 @@
   50% { transform: rotate(6deg); }
 }
 @media (max-width: 520px) {
-  .px-cat { left: 2%; bottom: 6%; }
-  .px-bunny { right: 2%; top: 6%; }
-  .px-chick { right: 6%; bottom: 3%; }
+  .px-cat { left: 4%; bottom: 6%; }
+  .px-bunny { right: 16%; top: 5%; }
+  .px-chick { right: 18%; bottom: 4%; }
 }
 :root {
   --w-ink: #6b4a6e;
