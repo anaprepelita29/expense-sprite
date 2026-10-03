@@ -1,4 +1,84 @@
 /* "After Dawn" pastel pixel-desktop theme */
+
+/* ===== Pixel-art animals on the login screen ===== */
+.auth-screen { position: relative; overflow: hidden; }
+.pixel-animal {
+  position: absolute;
+  width: 5px; height: 5px;
+  z-index: 0;
+  image-rendering: pixelated;
+}
+.auth-card { position: relative; z-index: 1; }
+
+/* Pink cat, hopping on the left */
+.px-cat {
+  left: 6%; bottom: 12%;
+  color: transparent;
+  animation: hop 1.6s ease-in-out infinite;
+  box-shadow:
+    5px 0 #6b4a6e, 40px 0 #6b4a6e,
+    5px 5px #6b4a6e, 10px 5px #6b4a6e, 35px 5px #6b4a6e, 40px 5px #6b4a6e,
+    5px 10px #6b4a6e, 10px 10px #f4a9c6, 15px 10px #f4a9c6, 20px 10px #f4a9c6, 25px 10px #f4a9c6, 30px 10px #f4a9c6, 35px 10px #f4a9c6, 40px 10px #6b4a6e,
+    5px 15px #6b4a6e, 10px 15px #f4a9c6, 15px 15px #fff, 20px 15px #f4a9c6, 25px 15px #f4a9c6, 30px 15px #fff, 35px 15px #f4a9c6, 40px 15px #6b4a6e,
+    5px 20px #6b4a6e, 10px 20px #f4a9c6, 15px 20px #f4a9c6, 20px 20px #f4a9c6, 25px 20px #f4a9c6, 30px 20px #f4a9c6, 35px 20px #f4a9c6, 40px 20px #6b4a6e,
+    5px 25px #6b4a6e, 10px 25px #f4a9c6, 15px 25px #6b4a6e, 20px 25px #f4a9c6, 25px 25px #f4a9c6, 30px 25px #6b4a6e, 35px 25px #f4a9c6, 40px 25px #6b4a6e,
+    10px 30px #6b4a6e, 15px 30px #f4a9c6, 20px 30px #f4a9c6, 25px 30px #f4a9c6, 30px 30px #f4a9c6, 35px 30px #6b4a6e,
+    10px 35px #6b4a6e, 15px 35px #6b4a6e, 20px 35px #6b4a6e, 25px 35px #6b4a6e, 30px 35px #6b4a6e, 35px 35px #6b4a6e;
+}
+
+/* Lilac bunny, bobbing on the right */
+.px-bunny {
+  right: 6%; top: 10%;
+  color: transparent;
+  animation: bunny-bob 2.2s ease-in-out infinite;
+  box-shadow:
+    10px 0 #6b4a6e, 25px 0 #6b4a6e,
+    10px 5px #6b4a6e, 25px 5px #6b4a6e,
+    10px 10px #6b4a6e, 25px 10px #6b4a6e,
+    5px 15px #6b4a6e, 10px 15px #d9b8e6, 15px 15px #d9b8e6, 20px 15px #d9b8e6, 25px 15px #d9b8e6, 30px 15px #6b4a6e,
+    5px 20px #6b4a6e, 10px 20px #fff, 15px 20px #d9b8e6, 20px 20px #d9b8e6, 25px 20px #fff, 30px 20px #6b4a6e,
+    5px 25px #6b4a6e, 10px 25px #d9b8e6, 15px 25px #d9b8e6, 20px 25px #d9b8e6, 25px 25px #d9b8e6, 30px 25px #6b4a6e,
+    5px 30px #6b4a6e, 10px 30px #d9b8e6, 15px 30px #f4a9c6, 20px 30px #f4a9c6, 25px 30px #d9b8e6, 30px 30px #6b4a6e,
+    5px 35px #6b4a6e, 10px 35px #d9b8e6, 15px 35px #d9b8e6, 20px 35px #d9b8e6, 25px 35px #d9b8e6, 30px 35px #6b4a6e,
+    10px 40px #6b4a6e, 15px 40px #d9b8e6, 20px 40px #d9b8e6, 25px 40px #6b4a6e,
+    10px 45px #6b4a6e, 15px 45px #6b4a6e, 20px 45px #6b4a6e, 25px 45px #6b4a6e;
+}
+
+/* Peach chick, wiggling at the bottom right */
+.px-chick {
+  right: 12%; bottom: 8%;
+  color: transparent;
+  animation: wiggle 1.2s ease-in-out infinite;
+  box-shadow:
+    15px 0 #6b4a6e, 20px 0 #6b4a6e,
+    10px 5px #6b4a6e, 15px 5px #ffd9c0, 20px 5px #ffd9c0, 25px 5px #6b4a6e,
+    5px 10px #6b4a6e, 10px 10px #ffd9c0, 15px 10px #fff, 20px 10px #ffd9c0, 25px 10px #ffd9c0, 30px 10px #6b4a6e,
+    5px 15px #6b4a6e, 10px 15px #ffd9c0, 15px 15px #ffd9c0, 20px 15px #ff9e6b, 25px 15px #ffd9c0, 30px 15px #6b4a6e,
+    5px 20px #6b4a6e, 10px 20px #ffd9c0, 15px 20px #ffd9c0, 20px 20px #ffd9c0, 25px 20px #ffd9c0, 30px 20px #6b4a6e,
+    10px 25px #6b4a6e, 15px 25px #ffd9c0, 20px 25px #ffd9c0, 25px 25px #6b4a6e,
+    15px 30px #6b4a6e, 20px 30px #6b4a6e,
+    15px 35px #ff9e6b, 20px 35px #ff9e6b;
+}
+
+@keyframes hop {
+  0%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-18px); }
+  50% { transform: translateY(0); }
+  60% { transform: translateY(-6px); }
+}
+@keyframes bunny-bob {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(6deg); }
+}
+@media (max-width: 520px) {
+  .px-cat { left: 2%; bottom: 6%; }
+  .px-bunny { right: 2%; top: 6%; }
+  .px-chick { right: 6%; bottom: 3%; }
+}
 :root {
   --w-ink: #6b4a6e;
   --w-deep: #9c6ba8;
